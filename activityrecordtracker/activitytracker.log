@@ -1,0 +1,35 @@
+[20/Sep/2015 09:58:53] ERROR [track.views:67] Traceback (most recent call last):
+  File "/run/media/idb/HP v220w/Backup/activityrecordtracker/track/views.py", line 62, in activities
+    activities = read_activities(username,from_datetime,to_datetime,parent_feature_name,feature_name,activity_result)
+  File "/run/media/idb/HP v220w/Backup/activityrecordtracker/track/backends.py", line 54, in read_activities
+    results=results.activities_by_result(activity_result)
+  File "/run/media/idb/HP v220w/Backup/activityrecordtracker/track/models.py", line 66, in activities_by_result
+    return self.filter(activity_datetime__exact=activity_result)
+  File "/usr/lib/python2.7/site-packages/django/db/models/query.py", line 679, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/db/models/query.py", line 697, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1309, in add_q
+    clause, require_inner = self._add_q(where_part, self.used_aliases)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1337, in _add_q
+    allow_joins=allow_joins, split_subq=split_subq,
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1208, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1101, in build_lookup
+    return final_lookup(lhs, rhs)
+  File "/usr/lib/python2.7/site-packages/django/db/models/lookups.py", line 101, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/usr/lib/python2.7/site-packages/django/db/models/lookups.py", line 139, in get_prep_lookup
+    return self.lhs.output_field.get_prep_lookup(self.lookup_name, self.rhs)
+  File "/usr/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 1313, in get_prep_lookup
+    return super(DateField, self).get_prep_lookup(lookup_type, value)
+  File "/usr/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 727, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/usr/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 1461, in get_prep_value
+    value = super(DateTimeField, self).get_prep_value(value)
+  File "/usr/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 1317, in get_prep_value
+    return self.to_python(value)
+  File "/usr/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 1444, in to_python
+    params={'value': value},
+ValidationError: [u"'S' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] format."]
+
