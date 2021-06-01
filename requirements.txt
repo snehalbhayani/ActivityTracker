@@ -1,6 +1,6 @@
 Django==1.8.4
 psycopg2==2.4.5
-urllib3==1.7
+urllib3==1.26.5
 gunicorn==19.3.0
 djangorestframework==3.2.3
 
